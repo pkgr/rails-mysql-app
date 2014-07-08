@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -ex
+set -e
 
 # summary of how this script can be called:
 #        * <postinst> `configure' <most-recently-configured-version>
@@ -21,7 +21,7 @@ case "$1" in
     if [ "$2" = "" ]; then
       rake_commands="${rake_commands} db:seed"
     fi
-    rails-mysql-app run rake ${rake_commands}
+    rails-mysql-app run rake ${rake_commands} || true
   ;;
 
   abort-upgrade|abort-remove|abort-deconfigure)
