@@ -1,2 +1,6 @@
 addons:
   - mysql
+targets:
+  debian-7:
+after_install: packaging/debian/postinst
+
